@@ -48,7 +48,7 @@ class ConfigController {
                 }
             
             echo "URL: {$this->Url}<br>";
-            echo "Controlle: {$this->UrlController}";
+            echo "Controlle: {$this->UrlController} <br>";
 
             
             }
@@ -87,6 +87,15 @@ class ConfigController {
         //$UrlController = str_replace(" ", "", $UrlController);
         $UrlController = str_replace(" ", "", ucwords(implode(" ", explode("-", strtolower($SlugController)))));
         return $UrlController;
+    }
+    
+    
+    public function carregarPagina(){
+       
+        $classe = "\\Site\\controllers\\" . $this->UrlController;
+        $classeCarregar = new $classe;
+        $classeCarregar->index();
+        
     }
 
         

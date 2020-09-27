@@ -10,6 +10,7 @@
         require './vendor/autoload.php';
         use Core\ConfigController as Home;
         $Url = new Home();
+        $Url->carregarPagina();
         
         
         ?>
