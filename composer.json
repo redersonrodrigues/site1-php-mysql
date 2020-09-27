@@ -1,0 +1,17 @@
+{
+    "name": "RAMAR",
+    "description": "Projeto PHP OO",
+    "authors": [
+    {
+        "name": "Réderson Rodrigues",
+        "email": "redersonatalibarodrigues@gmail.com"
+    }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core"
+        }
+    },
+    "require": {}
+    
+}
