@@ -1,6 +1,9 @@
 <?php
 namespace Site\controllers;
-
+if (!defined('URL')) {
+    header("Location: /");
+    exit();
+}
 /**
  * Description of Blog
  *
