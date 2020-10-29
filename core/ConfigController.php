@@ -34,7 +34,7 @@ class ConfigController {
                 }
                 else {
 
-                    $this->UrlController = "Home";
+                    $this->UrlController = CONTROLLER;
 
                 }
             // recuperando a segunda posição da url amigavel verifico
@@ -54,7 +54,7 @@ class ConfigController {
             }
             else
             {
-                $this->UrlController = "home";
+                $this->UrlController = CONTROLLER;
                 $this->UrlParametro = null;
             }
 
