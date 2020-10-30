@@ -19,6 +19,7 @@ class ConfigView {
     public    function renderizar() {
         if (file_exists('application/' . $this->Nome . '.php')){
             include 'application/site/views/include/cabecalho.php';
+            include 'application/site/views/include/menu.php';
             include 'application/site/views/include/rodape.php';
             include 'application/' . $this->Nome . '.php';  
         } else {
