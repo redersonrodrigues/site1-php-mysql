@@ -24,6 +24,9 @@ class Home {
         $listar_ser = new \Site\models\SiteServico();
         $this->Dados['sts_servicos'] = $listar_ser->listar();
         
+        $listar_vid = new \Site\models\SiteVideo();
+        $this->Dados['sts_videos'] = $listar_vid->listar();
+        
         $carregarView = new \Core\ConfigView("/site/views/home/home", $this->Dados);
         $carregarView->renderizar();
     }
