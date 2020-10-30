@@ -16,6 +16,9 @@ class Home {
     
     public function index() {
         //echo 'Página HOME (inicial) <br>';
+        $home = new \Site\models\SiteHome();
+        $home->index();
+        
         $carregarView = new \Core\ConfigView("/site/views/home/home");
         $carregarView->renderizar();
     }
