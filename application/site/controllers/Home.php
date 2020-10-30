@@ -14,12 +14,14 @@ if (!defined('URL')) {
  * */
 class Home {
     
+    private $Dados;
+    
     public function index() {
         //echo 'Página HOME (inicial) <br>';
         $home = new \Site\models\SiteHome();
-        $home->index();
+        $this->Dados = $home->index();
         
-        $carregarView = new \Core\ConfigView("/site/views/home/home");
+        $carregarView = new \Core\ConfigView("/site/views/home/home", $this->Dados);
         $carregarView->renderizar();
     }
 }
