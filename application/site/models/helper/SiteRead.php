@@ -28,7 +28,7 @@ class SiteRead extends SiteConn{
             parse_str($ParseString, $this->Values);
         }
         $this->Select = "SELECT * FROM {$Tabela} {$Termos}";
-        echo "{$this->Select}";
+        //echo "{$this->Select}";
         $this->exeInstrucao();
     }
     
@@ -40,7 +40,7 @@ class SiteRead extends SiteConn{
             //var_dump($this->Query);
             $this->Query->execute();
             $this->Resultado = $this->Query->fetchAll();
-            var_dump($this->Resultado);
+            //var_dump($this->Resultado);
         } catch (Exception $exc) {
             $this->Resultado = null;
             }  
