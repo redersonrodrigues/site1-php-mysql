@@ -18,8 +18,8 @@ class Home {
     
     public function index() {
         //echo 'Página HOME (inicial) <br>';
-        $home = new \Site\models\SiteHome();
-        $this->Dados['sts_carousels'] = $home->index();
+        $listar_car = new \Site\models\SiteCarousel();
+        $this->Dados['sts_carousels'] = $listar_car->listar();
         
         $carregarView = new \Core\ConfigView("/site/views/home/home", $this->Dados);
         $carregarView->renderizar();
