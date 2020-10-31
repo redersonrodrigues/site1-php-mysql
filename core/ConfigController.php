@@ -47,8 +47,8 @@ class ConfigController {
 
                 }
             
-            echo "URL: {$this->Url}<br>";
-            echo "Controlle: {$this->UrlController} <br>";
+            //echo "URL: {$this->Url}<br>";
+            //echo "Controlle: {$this->UrlController} <br>";
 
             
             }
