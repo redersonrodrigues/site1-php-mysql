@@ -50,7 +50,7 @@ if (!defined('URL')) {
                             <?php
                             foreach ($this->Dados['artRecente'] as $artigoRec) {
                                 extract($artigoRec);
-                                echo "<li><a href='".URL."artigo/$slug'>$titulo</a></li>";
+                                echo "<li><a href='" . URL . "artigo/$slug'>$titulo</a></li>";
                             }
                             ?>
                         </ol>
@@ -59,9 +59,12 @@ if (!defined('URL')) {
                     <div class="p-3">
                         <h4 class="font-italic">Destaque</h4>
                         <ol class="list-unstyled">
-                            <li><a href="#">Artigo 7</a></li>
-                            <li><a href="#">Artigo 3</a></li>
-                            <li><a href="#">Artigo 8</a></li>
+                            <?php
+                            foreach ($this->Dados['artDestaque'] as $artigoDest) {
+                                extract($artigoDest);
+                                echo "<li><a href='" . URL . "artigo/$slug'>$titulo</a></li>";
+                            }
+                            ?>
                         </ol>
                     </div>
                 </aside>

@@ -26,6 +26,10 @@ class Blog {
         $listarArtRecente = new \Site\models\SiteArtRecente();
         $this->Dados['artRecente'] =$listarArtRecente->listarArtRecente();
 
+        $listarArtDestaque = new \Site\models\SiteArtDestaque();
+        $this->Dados['artDestaque']= $listarArtDestaque->listarArtDestaque();
+
+
         $carregarView = new \Core\ConfigView('site/views/blog/blog', $this->Dados);
         $carregarView->renderizar();   
         }
