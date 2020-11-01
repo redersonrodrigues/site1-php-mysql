@@ -28,7 +28,9 @@ class Blog {
 
         $listarArtDestaque = new \Site\models\SiteArtDestaque();
         $this->Dados['artDestaque']= $listarArtDestaque->listarArtDestaque();
-
+        
+        $visSobreAutor = new \Site\models\SiteSobreAutor();
+        $this->Dados['sobreAutor'] = $visSobreAutor->sobreAutor();
 
         $carregarView = new \Core\ConfigView('site/views/blog/blog', $this->Dados);
         $carregarView->renderizar();   
