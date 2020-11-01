@@ -94,10 +94,11 @@ class ConfigController {
        
         $classe = "\\Site\\controllers\\" . $this->UrlController;
         $classeCarregar = new $classe;
-        $classeCarregar->index();
-        
+       if($this->UrlParametro !== null){
+            $classeCarregar->index($this->UrlParametro);
+        }else{
+            $classeCarregar->index();
+        }        
     }
 
-        
-        
 }
