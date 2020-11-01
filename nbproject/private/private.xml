@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/site1-php/application/site/models/SiteVideo.php</file>
-            <file>file:/C:/xampp/htdocs/site1-php/application/site/controllers/Home.php</file>
-            <file>file:/C:/xampp/htdocs/site1-php/application/site/models/SiteServico.php</file>
-            <file>file:/C:/xampp/htdocs/site1-php/application/site/models/SiteArtigoHome.php</file>
-            <file>file:/C:/xampp/htdocs/site1-php/application/site/views/home/home.php</file>
+            <file>file:/C:/xampp/htdocs/site1-php/application/site/views/contato/contato.php</file>
+            <file>file:/C:/xampp/htdocs/site1-php/application/site/controllers/Contato.php</file>
+            <file>file:/C:/xampp/htdocs/site1-php/application/site/models/SiteContato.php</file>
+            <file>file:/C:/xampp/htdocs/site1-php/application/site/models/helper/SiteCreate.php</file>
         </group>
     </open-files>
 </project-private>

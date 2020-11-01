@@ -12,7 +12,11 @@ if (!defined('URL')) {
 class Blog {
 
     public function index() {
-        echo 'Página Blog <br>';
-    }
+        $listar_art = new \Site\models\SiteBlog();
+        $this->Dados['artigos'] = $listar_art->ListarArtigos();
+
+        $carregarView = new \Core\ConfigView('site/views/blog/blog', $this->Dados);
+        $carregarView->renderizar();   
+        }
     
     }
