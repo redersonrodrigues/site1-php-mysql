@@ -28,32 +28,37 @@ if (!defined('URL')) {
                     </nav>
                 </div>
                 <aside class="col-md-4 blog-sidebar">
-                    <div class="p-3 mb-3 bg-light rounded">
-                        <h4 class="font-italic">Sobre</h4>
-                        <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                    </div>
+                    <?php if (!empty($this->Dados['sobreAutor'][0])) { ?>
+                        <div class="p-3 mb-3 bg-light rounded">
+                            <?php extract($this->Dados['sobreAutor'][0]); ?>
+                            <h4 class="font-italic"><?php echo $titulo; ?></h4>  
+                            <img src="<?php echo URL . 'assets/imagens/sobre_autor/' . $id . '/' . $imagem; ?>" class="img-fluid" alt="<?php echo $titulo; ?>">
+                            <p class="mb-0"><?php echo $descricao; ?></p>
+
+                        </div>
+                    <?php } ?>
 
                     <div class="p-3">
                         <h4 class="font-italic">Recentes</h4>
                         <ol class="list-unstyled mb-0">
-                            <li><a href="#">Artigo 1</a></li>
-                            <li><a href="#">Artigo 2</a></li>
-                            <li><a href="#">Artigo 3</a></li>
-                            <li><a href="#">Artigo 4</a></li>
-                            <li><a href="#">Artigo 5</a></li>
-                            <li><a href="#">Artigo 6</a></li>
-                            <li><a href="#">Artigo 7</a></li>
-                            <li><a href="#">Artigo 8</a></li>
-                            <li><a href="#">Artigo 9</a></li>
+                            <?php
+                            foreach ($this->Dados['artRecente'] as $artigoRec) {
+                                extract($artigoRec);
+                                echo "<li><a href='" . URL . "artigo/$slug'>$titulo</a></li>";
+                            }
+                            ?>
                         </ol>
                     </div>
 
                     <div class="p-3">
                         <h4 class="font-italic">Destaque</h4>
                         <ol class="list-unstyled">
-                            <li><a href="#">Artigo 7</a></li>
-                            <li><a href="#">Artigo 3</a></li>
-                            <li><a href="#">Artigo 8</a></li>
+                            <?php
+                            foreach ($this->Dados['artDestaque'] as $artigoDest) {
+                                extract($artigoDest);
+                                echo "<li><a href='" . URL . "artigo/$slug'>$titulo</a></li>";
+                            }
+                            ?>
                         </ol>
                     </div>
                 </aside>
