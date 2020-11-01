@@ -19,13 +19,27 @@ if (!defined('URL')) {
                             <img src="<?php echo URL . 'assets/imagens/artigo/' . $id . '/' . $imagem; ?>" class="img-fluid" alt="<?php echo $titulo; ?>" style="margin-bottom: 20px;">
                             <?php echo $conteudo; ?>
                         </div>
+                        <nav class="blog-pagination">
+                            <?php
+                            if (!empty($this->Dados['artAnterior'][0])) {
+                                extract($this->Dados['artAnterior'][0]);
+                                echo "<a class='btn btn-outline-primary' href='" . URL . "artigo/$slug'>Anterior</a>";
+                            } else {
+                                echo "<a class='btn btn-outline-secondary disabled' href='#'>Anterior</a>";
+                            }
+                            if (!empty($this->Dados['artProximo'][0])) {
+                                extract($this->Dados['artProximo'][0]);
+                                echo "<a class='btn btn-outline-primary' href='" . URL . "artigo/$slug'>Próximo</a>";
+                            } else {
+                                echo "<a class='btn btn-outline-secondary disabled' href='#'>Próximo</a>";
+                            }
+                            ?>
+                        </nav>
                         <?php
+                    }else{
+                        echo "<div class='alert alert-danger'>Erro: Artigo não encontrado!</div>";
                     }
-                    ?>                    
-                    <nav class="blog-pagination">
-                        <a class="btn btn-outline-primary" href="#">Older</a>
-                        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-                    </nav>
+                    ?>      
                 </div>
                 <aside class="col-md-4 blog-sidebar">
                     <?php if (!empty($this->Dados['sobreAutor'][0])) { ?>
