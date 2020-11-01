@@ -22,6 +22,9 @@ class Blog {
         $listar_art = new \Site\models\SiteBlog();
         $this->Dados['artigos'] = $listar_art->listarArtigos($this->PageId);
         $this->Dados['paginacao'] = $listar_art->getResultadoPg();
+        
+        $listarArtRecente = new \Site\models\SiteArtRecente();
+        $this->Dados['artRecente'] =$listarArtRecente->listarArtRecente();
 
         $carregarView = new \Core\ConfigView('site/views/blog/blog', $this->Dados);
         $carregarView->renderizar();   
