@@ -10,10 +10,18 @@ if (!defined('URL')) {
  * @copyright (c) year, Réderson Rodrigues - RAMAR
  * */
 class Blog {
-
+    
+    private $Dados;
+    private $PageId;
+    
     public function index() {
+        $this->PageId = filter_input(INPUT_GET, 'pg', FILTER_SANITIZE_NUMBER_INT);
+        $this->PageId = $this->PageId ? $this->PageId : 1;
+        //echo "<br><br><br> {$this->PageId}";
+        
         $listar_art = new \Site\models\SiteBlog();
-        $this->Dados['artigos'] = $listar_art->ListarArtigos();
+        $this->Dados['artigos'] = $listar_art->listarArtigos($this->PageId);
+        $this->Dados['paginacao'] = $listar_art->getResultadoPg();
 
         $carregarView = new \Core\ConfigView('site/views/blog/blog', $this->Dados);
         $carregarView->renderizar();   

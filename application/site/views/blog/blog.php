@@ -12,6 +12,9 @@ if (!defined('URL')) {
             <div class="row">
                 <div class="col-md-8 blog-main">
                     <?php
+                    if (empty($this->Dados['artigos'])) {
+                        echo "<div class='alert alert-danger'>Erro: Nenhum artigo encontrado!</div>";
+                    }
                     foreach ($this->Dados['artigos'] as $artigo) {
                         extract($artigo);
                         ?>
@@ -31,23 +34,9 @@ if (!defined('URL')) {
                         <hr class="featurette-divider">
                         <?php
                     }
-                    ?>
 
-                    <nav aria-label="paginacao">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    echo $this->Dados['paginacao'];
+                    ?>
                 </div>
                 <aside class="col-md-4 blog-sidebar">
                     <div class="p-3 mb-3 bg-light rounded">
