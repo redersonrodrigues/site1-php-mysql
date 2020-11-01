@@ -23,7 +23,11 @@ class Contato {
             unset($this->Dados['CadMsgCont']);
             $cadContato = new \Site\models\SiteContato();
             $cadContato->cadContato($this->Dados);
-            $this->Dados['form'] = $this->Dados;
+            if ($cadContato->getResultado()) {
+                $this->Dados['form'] = null;
+            } else {
+                $this->Dados['form'] = $this->Dados;
+            }            
         }
         
         
