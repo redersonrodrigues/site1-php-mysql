@@ -16,10 +16,20 @@ class Contato {
 
     public function index()
     {
-        $this->Dados = ['nome' => 'Réderson', 'email' => 'r.ataliba@hotmail.com', 'assunto' => 'teste1', 'mensagem' => 'msg teste 1', 'created' => date('Y-m-d H:i:s')];
+        $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        //echo "<br><br><br>";
         //var_dump($this->Dados);
-        $cadContato = new \Site\models\SiteContato();
-        $cadContato->cadContato($this->Dados);
+        if(!empty($this->Dados['CadMsgCont'])){
+            unset($this->Dados['CadMsgCont']);
+            $cadContato = new \Site\models\SiteContato();
+            $cadContato->cadContato($this->Dados);
+            $this->Dados['form'] = $this->Dados;
+        }
+        
+        
+        
+        $carregarView = new \Core\ConfigView('site/views/contato/contato', $this->Dados);
+        $carregarView->renderizar();
     }
+
 }
-?>

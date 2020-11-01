@@ -18,7 +18,11 @@ class SiteCreate extends SiteConn
     private $Query;
     private $Conn;
 
-    public function exeCreate($Tabela, array $Dados)
+    function getResultado() {
+        return $this->Resultado;
+    }
+
+        public function exeCreate($Tabela, array $Dados)
     {
         $this->Tabela = (string) $Tabela;
         $this->Dados = $Dados;

@@ -18,5 +18,10 @@ class SiteContato
         $this->Dados = $Dados;
         $cadContato = new \Site\models\helper\SiteCreate();
         $cadContato->exeCreate('sts_contatos', $this->Dados);
+        if($cadContato->getResultado()){
+            $_SESSION['msg'] = "<div class='alert alert-success'>Mensagem enviada com sucesso!</div>";
+        }else{
+            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Mensagem não foi enviada!</div>";
+        }
     }
 }
