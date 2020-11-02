@@ -7,11 +7,12 @@ namespace Core;
  * @copyright (c) year, Réderson Rodrigues - RAMAR
  * */
 class ConfigController {
-     private $Url;
+    private $Url;
     private $UrlConjunto;
     private $UrlController;
     private $UrlParametro;
     private $Classe;
+    private $Paginas;
     private static $Format;
 
     public function __construct()
@@ -68,9 +69,18 @@ class ConfigController {
 
     public function carregar()
     {
-        $this->Classe = "\\Site\\controllers\\" . $this->UrlController;
-        if (class_exists($this->Classe)) {
-            $this->carregarMetodo();
+        
+        //echo "<br><br><br>";
+        $listarPg = new \Site\models\SitePaginas();
+        $this->Paginas = $listarPg->listarPaginas($this->UrlController);
+        if ($this->Paginas) {
+            $this->Classe = "\\Site\\controllers\\" . $this->UrlController;
+            if (class_exists($this->Classe)) {
+                $this->carregarMetodo();
+            } else {
+                $this->UrlController = $this->slugController(CONTROLLER);
+                $this->carregar();
+            }
         } else {
             $this->UrlController = $this->slugController(CONTROLLER);
             $this->carregar();
