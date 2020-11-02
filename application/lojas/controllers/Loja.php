@@ -20,6 +20,12 @@ class Loja {
         $this->PageId = $this->PageId ? $this->PageId : 1;
         //echo "<br><br><br> {$this->PageId}";
         
+        $listarMenu = new \Site\models\SiteMenu();
+        $this->Dados['menu'] = $listarMenu->listarMenu();
+        
+        $listarSeo = new \Site\models\SiteSeo();
+        $this->Dados['seo'] = $listarSeo->listarSeo();
+        
         $listar_art = new \Site\models\SiteBlog();
         $this->Dados['artigos'] = $listar_art->listarArtigos($this->PageId);
         $this->Dados['paginacao'] = $listar_art->getResultadoPg();

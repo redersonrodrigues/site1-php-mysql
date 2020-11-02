@@ -21,9 +21,6 @@ class Artigo
         $listarMenu = new \Site\models\SiteMenu();
         $this->Dados['menu'] = $listarMenu->listarMenu();
         
-        $listarSeo = new \Site\models\SiteSeo();
-        $this->Dados['seo'] = $listarSeo->listarSeo();
-
         $visualizarArt = new \Site\models\SiteArtigo();
         $this->Dados['sts_artigos'] = $visualizarArt->visualizarArtigo($this->Artigo);
 
@@ -36,10 +33,16 @@ class Artigo
         $visSobreAutor = new \Site\models\SiteSobreAutor();
         $this->Dados['sobreAutor'] = $visSobreAutor->sobreAutor();
 
+        $listarSeo = new \Site\models\SiteSeo();
+        $this->Dados['seo'] = $listarSeo->listarSeo();
+        
         if (!empty($this->Dados['sts_artigos'][0])) {
             $artProxAnt = new \Site\models\SiteArtProxAnt();
             $this->Dados['artProximo'] = $artProxAnt->artigoProximo($this->Dados['sts_artigos'][0]['id']);
             $this->Dados['artAnterior'] = $artProxAnt->artigoAnterior($this->Dados['sts_artigos'][0]['id']);
+            $this->Dados['seo'] = $listarSeo->listarSeo('sts_artigos', 'slug', $this->Artigo);
+        } else {
+            $this->Dados['seo'] = $listarSeo->listarSeo();
         }
 
         $carregarView = new \Core\ConfigView('site/views/blog/artigo', $this->Dados);
