@@ -15,6 +15,9 @@ class Blog
 
     public function index()
     {
+        $listarMenu = new \Site\models\SiteMenu();
+        $this->Dados['menu'] = $listarMenu->listarMenu();
+        
         $this->PageId = filter_input(INPUT_GET, 'pg', FILTER_SANITIZE_NUMBER_INT);
         $this->PageId = $this->PageId ? $this->PageId : 1;
         //echo "<br><br><br> {$this->PageId}";

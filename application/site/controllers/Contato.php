@@ -14,6 +14,7 @@ class Contato
 
     public function index()
     {
+                
         $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         if (!empty($this->Dados['CadMsgCont'])) {
             unset($this->Dados['CadMsgCont']);
@@ -25,6 +26,10 @@ class Contato
                 $this->Dados['form'] = $this->Dados;
             }            
         }
+        
+        $listarMenu = new \Site\models\SiteMenu();
+        $this->Dados['menu'] = $listarMenu->listarMenu();
+        
         $carregarView = new \Core\ConfigView('site/views/contato/contato', $this->Dados);
         $carregarView->renderizar();
     }

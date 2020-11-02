@@ -7,18 +7,28 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item menu">
+                    <?php
+                    foreach ($this->Dados['menu'] as $menu) {
+                        extract($menu);
+                        ?>
+                        <li class="nav-item menu">
+                            <a class="nav-link" href="<?php echo URL . $endereco; ?>"><?php echo $nome_pagina; ?> </a>
+                        </li>
+                        <?php
+                    }
+                    ?>
+                    <!--<li class="nav-item menu">
                         <a class="nav-link" href="<?php echo URL; ?>">Home </a>
                     </li>
                     <li class="nav-item menu">
-                        <a class="nav-link" href="<?php echo URL . 'sobre_empresa'; ?>">Sobre a Empresa</a>
+                        <a class="nav-link" href="<?php echo URL . 'sobre-empresa'; ?>">Sobre a Empresa</a>
                     </li>
                     <li class="nav-item menu">
                         <a class="nav-link" href="<?php echo URL . 'blog'; ?>">Blog </a>
                     </li>
                     <li class="nav-item menu">
                         <a class="nav-link" href="<?php echo URL . 'contato'; ?>">Contato</a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </div>

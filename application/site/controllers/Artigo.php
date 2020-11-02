@@ -17,6 +17,9 @@ class Artigo
     {
         $this->Artigo = (string) $Artigo;
         //echo "<br><br><br>{$this->Artigo}";
+        
+        $listarMenu = new \Site\models\SiteMenu();
+        $this->Dados['menu'] = $listarMenu->listarMenu();
 
         $visualizarArt = new \Site\models\SiteArtigo();
         $this->Dados['sts_artigos'] = $visualizarArt->visualizarArtigo($this->Artigo);

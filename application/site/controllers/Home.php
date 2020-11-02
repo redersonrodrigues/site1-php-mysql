@@ -14,6 +14,9 @@ class Home
 
     public function index()
     {
+        $listarMenu = new \Site\models\SiteMenu();
+        $this->Dados['menu'] = $listarMenu->listarMenu();
+        
         $listar_car = new \Site\models\SiteCarousel();
         $this->Dados['sts_carousels'] = $listar_car->listar();
 

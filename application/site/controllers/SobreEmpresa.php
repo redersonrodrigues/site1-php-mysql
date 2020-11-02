@@ -14,6 +14,9 @@ class SobreEmpresa
 
     public function index()
     {
+        $listarMenu = new \Site\models\SiteMenu();
+        $this->Dados['menu'] = $listarMenu->listarMenu();
+        
         $listarSobEmp = new \Site\models\SiteSobEmp();
         $this->Dados['sts_sobs_emps'] = $listarSobEmp->listarSobEmp();
         
