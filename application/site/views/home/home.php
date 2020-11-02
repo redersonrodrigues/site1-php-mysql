@@ -51,6 +51,7 @@ if (!defined('URL')) {
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div>
         <?php extract($this->Dados['sts_servicos'][0]); ?>
         <div class="jumbotron servicos">
             <div class="container">
@@ -92,8 +93,23 @@ if (!defined('URL')) {
                 </div>
             </div>
         </div>
+        <?php extract($this->Dados['sts_videos'][0]); ?>
+    <div class="jumbotron video">
+        <div class="container">
+            <h2 class="display-4 text-center video-titulo" style="margin-bottom: 40px;"><?php echo $titulo; ?></h2>
+            <p class="lead text-center video-parag"><?php echo $descricao; ?></p>
+            <div class="row justify-content-md-center video-cont">
+
+                <div class="col-12 col-md-8">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <?php echo $video; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+<<<<<<< HEAD
     <?php extract($this->Dados['sts_servicos'][0]); ?>
     <div class="jumbotron servicos">
         <div class="container">
@@ -181,5 +197,8 @@ if (!defined('URL')) {
             </div>
         </div>
     </div>
+=======
+
+>>>>>>> 5497ded... Criada área para divulgação de serviços
 
 </main>
