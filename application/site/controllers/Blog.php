@@ -17,6 +17,9 @@ class Blog
     {
         $listarMenu = new \Site\models\SiteMenu();
         $this->Dados['menu'] = $listarMenu->listarMenu();
+         
+        $listarSeo = new \Site\models\SiteSeo();
+        $this->Dados['seo'] = $listarSeo->listarSeo();
         
         $this->PageId = filter_input(INPUT_GET, 'pg', FILTER_SANITIZE_NUMBER_INT);
         $this->PageId = $this->PageId ? $this->PageId : 1;

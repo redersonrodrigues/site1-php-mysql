@@ -20,6 +20,9 @@ class Artigo
         
         $listarMenu = new \Site\models\SiteMenu();
         $this->Dados['menu'] = $listarMenu->listarMenu();
+        
+        $listarSeo = new \Site\models\SiteSeo();
+        $this->Dados['seo'] = $listarSeo->listarSeo();
 
         $visualizarArt = new \Site\models\SiteArtigo();
         $this->Dados['sts_artigos'] = $visualizarArt->visualizarArtigo($this->Artigo);
