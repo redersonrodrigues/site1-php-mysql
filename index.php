@@ -5,5 +5,5 @@
         
         use Core\ConfigController as Home;
         $Url = new Home();
-        $Url->carregarPagina();
+        $Url->carregar();
      
