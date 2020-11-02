@@ -1,12 +1,11 @@
 <?php
 
 namespace Core;
-/**
- * Description of ConfigController
- *
- * @copyright (c) year, Réderson Rodrigues - RAMAR
- * */
-class ConfigController {
+
+
+class ConfigController
+{
+
     private $Url;
     private $UrlConjunto;
     private $UrlController;
@@ -25,7 +24,7 @@ class ConfigController {
             if (isset($this->UrlConjunto[0])) {
                 $this->UrlController = $this->slugController($this->UrlConjunto[0]);
             } else {
-                $this->UrlController = $this->slugController(CONTROLLER);
+                $this->UrlController = $this->slugController(CONTROLER);
             }
 
             if (isset($this->UrlConjunto[1])) {
@@ -36,7 +35,7 @@ class ConfigController {
             //echo "URL: {$this->Url} <br>";
             //echo "Controlle: {$this->UrlController} <br>";
         } else {
-            $this->UrlController = $this->slugController(CONTROLLER);
+            $this->UrlController = $this->slugController(CONTROLER);
             $this->UrlParametro = null;
         }
     }
@@ -69,20 +68,21 @@ class ConfigController {
 
     public function carregar()
     {
-        
         //echo "<br><br><br>";
         $listarPg = new \Site\models\SitePaginas();
         $this->Paginas = $listarPg->listarPaginas($this->UrlController);
         if ($this->Paginas) {
-            $this->Classe = "\\Site\\controllers\\" . $this->UrlController;
+           extract($this->Paginas[0]);
+           $this->Classe = "\\App\\{$tipo_tpg}\\controllers\\" . $this->UrlController;
+            
             if (class_exists($this->Classe)) {
                 $this->carregarMetodo();
             } else {
-                $this->UrlController = $this->slugController(CONTROLLER);
+                $this->UrlController = $this->slugController(CONTROLER);
                 $this->carregar();
             }
         } else {
-            $this->UrlController = $this->slugController(CONTROLLER);
+            $this->UrlController = $this->slugController(CONTROLER);
             $this->carregar();
         }
     }
@@ -96,8 +96,8 @@ class ConfigController {
             } else {
                 $classeCarregar->index();
             }
-        }else{
-            $this->UrlController = $this->slugController(CONTROLLER);
+        } else {
+            $this->UrlController = $this->slugController(CONTROLER);
             $this->carregar();
         }
     }
